@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigado, Chefe!</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative; /* adicionado */
+  background: url('fundo.jpg') no-repeat center center/cover;
+}
+
+body::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: url('https://images.steamusercontent.com/ugc/242461372619194827/4AEF77D46A34AA7DD6DF7EE4C27EA7265DACD9FE/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
+  background-size: cover;
+  filter: blur(8px); /* desfoca só o GIF */
+  z-index:0;
+}
+
+.popup {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9); /* branco meio transparente */
+  padding: 40px 60px; /* mantém o padding original */
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  width: 500px; /* mais largo */
+  height: 400px; /* altura automática conforme o conteúdo */
+  font-size: 22px; /* aumenta o tamanho do texto proporcional ao popup */
+}
+
+.popup h2 {
+  color: orange;
+  margin-bottom: 100px;
+  font-size:35px;
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* duração aumentada para 1s */
+  animation-delay: 0s;
+}
+
+.popup p {
+  margin: 10px 0;
+  font-size: 20px;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards; /* duração aumentada */
+}
+
+.popup p:nth-of-type(1) { animation-delay: 1s; }
+.popup p:nth-of-type(2) { animation-delay: 1.5s; }
+.popup p:nth-of-type(3) { animation-delay: 2s; }
+.popup p:nth-of-type(4) { animation-delay: 2.5s; }
+
+.positivo { color: green; font-weight: bold; }
+.negativo { color: red; font-weight: bold; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="popup">
+  <h2>OBRIGADAA CHEFINHAS❤️!</h2>
+  <p><strong>Salário:</strong> <span class="positivo">+20%</span></p>
+  <p><strong>Gratidão ao chefe:</strong> <span class="positivo">+80%</span></p>
+ <p><strong>Mau humor:</strong> <span class="negativo">-40%</span></p>
+<p><strong>Procrastinação:</strong> <span class="negativo">-55%</span></p>
+
+</div>
+
+</body>
+</html>

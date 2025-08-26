@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedir Aumento 😅</title>
+  <style>
+    body {
+      margin:0;
+      height:100vh;
+      display:flex;
+      align-items:flex-start; /* sobe os elementos para o topo */
+      justify-content:center;
+      font-family: Arial, Helvetica, sans-serif;
+      color:white;
+      overflow:hidden;
+      position:relative;
+      padding-top: 85px; /* aumente esse valor para descer mais */
+    }
+    body::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: url('https://olaflores.wordpress.com/wp-content/uploads/2017/06/cai-chuva-do-ceu-cinzento_thumb.gif?w=640');
+      background-size: cover;
+      filter: blur(8px); /* desfoca só o GIF */
+      z-index:0;
+    }
+    .container{
+      text-align:center;
+      z-index:1;
+    }
+    h1{
+      font-size:5em;
+      color: #facc15; 
+      margin-bottom: 0;
+      -webkit-text-stroke: 3px black; /* contorno preto */
+    }
+    
+    button:hover {
+      transform: scale(1.1);
+    }
+    p{
+      font-size:3em;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin-bottom:0;
+      margin-top: -100px;
+      -webkit-text-stroke: 1.5px black; /* contorno preto */
+      color: #ebe5ce; 
+    }
+    .buttons{
+      display:flex;
+      gap:20px;
+      position:relative;
+      align-items: center;   
+      padding: 50px;
+    }
+  
+    button{
+      padding:15px 25px;
+      font-size:1.8em;
+      font-weight:bold;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      transition:all 0.2s ease;
+      height: 90px;      /* altura fixa */
+      width: 500px;      /* largura fixa */
+    }
+    .yes{
+      background:#3b82f6;
+      color:white;
+    }
+    .no{
+      background:#dc2626;
+      color:white;
+    }
+    img{ 
+      margin-bottom: 9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Olá Chefinhas 😊 !</h1>
+
+    <img src="https://i.postimg.cc/dQXmLSV7/Urso.png" alt="Urso" style="height: 350px; width: 400px; object-fit: contain;">
+    <br>
+  
+    <p>Vocês poderiam, por gentileza, me dar um aumento?</p>
+    <div class="buttons">
+      <button class="yes" id="yesBtn">CLARO, MINHA MELHOR FUNCIONÁRIA</button>
+      <button class="no" id="noBtn">NÃO</button>
+    </div>
+  </div>
+
+  <!-- Lib do confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    // evento do botão YES
+    yesBtn.addEventListener("click", () => {
+      confetti({
+        particleCount: 800,
+        spread: 800,
+        origin: { y: 0.5 }
+      });
+
+      setTimeout(() => {
+        window.location.href = "Segunda pagina.html";
+      }, 1800);
+    });
+
+    // evento do botão NÃO (fugindo)
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+
+      const audio = new Audio('https://www.myinstants.com/media/sounds/error-windows-xp.mp3');
+      audio.play();
+    });
+
+    noBtn.addEventListener("click", () => {
+      alert("😢 Poxa vida...");
+    });
+  </script>                  
+</body>
+</html>
